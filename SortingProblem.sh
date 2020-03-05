@@ -16,4 +16,4 @@ function AcceptValues() {
 AcceptValues
 
 operation1=$(($a+$b*$c))
-
+operation2=$(($a*$b+$c))
