@@ -18,3 +18,5 @@ AcceptValues
 operation1=$(($a+$b*$c))
 operation2=$(($a*$b+$c))
 operation3=$(($c+$a/$b))
+operation4=$(($a%$b+$c))
+
