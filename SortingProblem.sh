@@ -50,3 +50,22 @@ echo "Displaying in Descending order ${resultsArray[@]}"
 
 DescendingSort
 
+function AscendingSort(){
+for ((i=0; i<4; i++))
+do
+   temp=0
+   for ((j=0; j<4; j++))
+   do
+      if [[ ${resultsArray[$j]} -gt ${resultsArray[$i]} ]]
+      then
+         temp=${resultsArray[$i]}
+         resultsArray[$i]=${resultsArray[$j]}
+         resultsArray[$j]=$temp
+
+      fi
+   done
+done
+echo "Displaying in Ascending order ${resultsArray[@]}"
+}
+
+AscendingSort
