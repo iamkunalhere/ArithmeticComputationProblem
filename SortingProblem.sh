@@ -16,10 +16,10 @@ function AcceptValues() {
 AcceptValues
 
 declare -A results
-results[operation1]=$(($a+$b*$c))
-results[operation2]=$(($a*$b+$c))
-results[operation3]=$(($c+$a/$b))
-results[operation4]=$(($a%$b+$c))
+results[operation1]=`expr "scale=2;$a+$b*$c" | bc -l`
+results[operation2]=`expr "scale=2;$a*$b+$c" | bc -l`
+results[operation3]=`expr "scale=2;$c+$a/$b" | bc -l`
+results[operation4]=`expr "scale=2;$a%$b+$c" | bc -l`
 
 declare -a resultsArray
 counter=0
@@ -36,7 +36,7 @@ do
 	temp=0
 	for ((j=0; j<4; j++))
 	do
-		if [[ ${resultsArray[$j]} -lt ${resultsArray[$i]} ]]
+		if [[ ${resultsArray[$j]%.*} -lt ${resultsArray[$i]%.*} ]]
 		then
 			temp=${resultsArray[$i]}
 			resultsArray[$i]=${resultsArray[$j]}
@@ -56,7 +56,7 @@ do
    temp=0
    for ((j=0; j<4; j++))
    do
-      if [[ ${resultsArray[$j]} -gt ${resultsArray[$i]} ]]
+      if [[ ${resultsArray[$j]%.*} -gt ${resultsArray[$i]%.*} ]]
       then
          temp=${resultsArray[$i]}
          resultsArray[$i]=${resultsArray[$j]}
