@@ -15,8 +15,9 @@ function AcceptValues() {
 }
 AcceptValues
 
-operation1=$(($a+$b*$c))
-operation2=$(($a*$b+$c))
-operation3=$(($c+$a/$b))
-operation4=$(($a%$b+$c))
+declare -A results
+results[operation1]=$(($a+$b*$c))
+results[operation2]=$(($a*$b+$c))
+results[operation3]=$(($c+$a/$b))
+results[operation4]=$(($a%$b+$c))
 
